@@ -1,4 +1,3 @@
-
 import random
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,6 +7,7 @@ TOTAL_PAGES = 2048
 NODE_SPLIT = 1024
 CYCLE_ACCESSES = 10240
 
+
 class Page:
     def __init__(self, pfn):
         self.pfn = pfn
@@ -15,6 +15,7 @@ class Page:
         self.node = 0 if pfn < NODE_SPLIT else 1
         self.latency_ns = 10 if self.node == 0 else 25
         self.is_hot = False
+
 
 class MemorySimulator:
     def __init__(self):
@@ -96,6 +97,7 @@ class MemorySimulator:
         if filename:
             plt.savefig(f"output/{filename}")
         plt.close()
+
 
 if __name__ == "__main__":
     os.makedirs("output", exist_ok=True)
